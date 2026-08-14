@@ -14,15 +14,28 @@ export class CreateConversationReqDto {
 @ApiExtraModel([ConversationDto, MessageDto])
 export class CreateConversationDataDto {
   @Rule(() => getSchema(ConversationDto).required())
-  @ApiProperty({ type: 'object', $ref: getSchemaPath(ConversationDto), required: true })
+  @ApiProperty({
+    type: 'object',
+    $ref: getSchemaPath(ConversationDto),
+    required: true,
+  })
   conversation: ConversationDto;
 
   @Rule(() => getSchema(MessageDto).required())
-  @ApiProperty({ type: 'object', $ref: getSchemaPath(MessageDto), required: true })
+  @ApiProperty({
+    type: 'object',
+    $ref: getSchemaPath(MessageDto),
+    required: true,
+  })
   userMessage: MessageDto;
 
   @Rule(() => getSchema(MessageDto).allow(null).required())
-  @ApiProperty({ type: 'object', $ref: getSchemaPath(MessageDto), nullable: true, required: false })
+  @ApiProperty({
+    type: 'object',
+    $ref: getSchemaPath(MessageDto),
+    nullable: true,
+    required: false,
+  })
   reply: MessageDto | null;
 }
 

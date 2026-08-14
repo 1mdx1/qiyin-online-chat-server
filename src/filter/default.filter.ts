@@ -1,12 +1,12 @@
-import { Catch } from '@midwayjs/core';
+import { Catch, MidwayError } from '@midwayjs/core';
+import { failed } from '../common/res';
+import { ErrorCode, CustomError } from '../common/error';
+import { Context } from '@midwayjs/koa';
 
 @Catch()
 export class DefaultErrorFilter {
-  async catch(err: Error) {
-    // 所有的未分类错误会到这里
-    return {
-      success: false,
-      message: err.message,
-    };
+  async catch(error: MidwayError, ctx: Context) {
+    ctx.logger.error(error);
+    return failed(new CustomError(ErrorCode.Unknown));
   }
 }

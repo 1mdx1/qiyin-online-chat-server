@@ -27,7 +27,11 @@ export class Message {
   @Column({ comment: '发送者用户id（人类或机器人）' })
   uid: string;
 
-  @Column({ type: 'smallint', default: MessageStatus.Normal, comment: '消息状态' })
+  @Column({
+    type: 'smallint',
+    default: MessageStatus.Normal,
+    comment: '消息状态',
+  })
   status: MessageStatus;
 
   @Column()

@@ -1,6 +1,7 @@
-/**
- * @description User-Service parameters
- */
-export interface IUserOptions {
-  uid: number;
+import '@midwayjs/core';
+
+declare module '@midwayjs/core' {
+  interface Context {
+    uid: string;
+  }
 }

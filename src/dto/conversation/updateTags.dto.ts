@@ -14,4 +14,6 @@ export class UpdateTagsReqDto {
   tags: string[];
 }
 
-export class UpdateTagsResDto extends SuccessWrapper<ConversationDto>(ConversationDto) {}
+export class UpdateTagsResDto extends SuccessWrapper<ConversationDto>(
+  ConversationDto
+) {}

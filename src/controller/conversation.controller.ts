@@ -196,6 +196,7 @@ export class ConversationController {
     }
     conversation.name = data.name;
     await this.conversationModel.save(conversation);
+    return conversation;
   }
 
   @Post('/update-tags')
@@ -243,6 +244,7 @@ export class ConversationController {
       promiseArr.push(this.redisService.srem(key, data.id));
     }
     await Promise.all(promiseArr);
+    return conversation;
   }
 
   /**
